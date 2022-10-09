@@ -1,5 +1,6 @@
-const unsortedArray = [9, 5, 2, 7, 4, 1, 3, 6, 8];
+const unsortedArray = [9, 1, 8, 2, 7, 3, 6, 4, 5];
 
+// Always O(n^2)
 function selection(array) {
   for (let i=0; i<array.length; i++) {
     let minIndex = i;
@@ -16,6 +17,7 @@ function selection(array) {
   console.log(array);
 }
 
+// Best case O(n) otherwise O(n^2)
 function efficientbubble(array) {
   let sorted = false;
   while(!sorted) {
@@ -33,6 +35,7 @@ function efficientbubble(array) {
   console.log(array);
 }
 
+// Always O(n^2)
 function bubble(array) {
   for (let j=0; j<array.length; j++) {
     for (let i=0; i<array.length; i++) {
@@ -47,10 +50,18 @@ function bubble(array) {
   console.log(array);
 }
 
-
+// Best case O(n) otherwise O(n^2)
 function insertion(array) {
+
+  for (let i=1; i<array.length; i++) {
+    let temp = array[i];
+    let j = i - 1;
+    while (j >= 0 && array[j] > temp) {
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j+1] = temp;
+  }
 
   console.log(array);
 }
-
-insertion(unsortedArray);
