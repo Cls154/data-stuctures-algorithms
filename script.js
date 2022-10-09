@@ -16,4 +16,11 @@ function selection(array) {
   console.log(array);
 }
 
-selection(unsortedArray);
+// selection(unsortedArray);
+
+function bubble(array) {
+
+  console.log(array);
+}
+
+bubble(unsortedArray);
