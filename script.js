@@ -16,11 +16,33 @@ function selection(array) {
   console.log(array);
 }
 
-// selection(unsortedArray);
-
-function bubble(array) {
+function efficientbubble(array) {
+  let sorted = false;
+  while(!sorted) {
+    sorted = true;
+    for (let i=0; i<array.length; i++) {
+      if (array[i+1] < array[i]) {
+        let temp = array[i];
+        array[i] = array[i+1];
+        array[i+1] = temp;
+        sorted = false;
+      }
+    }
+  }
 
   console.log(array);
 }
 
-bubble(unsortedArray);
+function bubble(array) {
+  for (let j=0; j<array.length; j++) {
+    for (let i=0; i<array.length; i++) {
+      if (array[i+1] < array[i]) {
+        let temp = array[i];
+        array[i] = array[i+1];
+        array[i+1] = temp;
+        sorted = false;
+      }
+    }
+  }
+  console.log(array);
+}
