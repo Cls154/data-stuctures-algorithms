@@ -66,9 +66,7 @@ function insertion(array) {
   console.log(array);
 }
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-// Linear Search
+// O(n)
 function linearSearch(array, value) {
   for (let i=0; i<array.length; i++) {
     if (value === array[i]) {
@@ -79,4 +77,38 @@ function linearSearch(array, value) {
   return -1;
 }
 
-console.log(linearSearch(array, 2))
+// O(logN)
+function binarySearch(sortedArray, value) {
+  let low = 0;
+  let high = sortedArray.length - 1;
+
+  while (low <= high) {
+    let middle = Math.floor((high + low) / 2);
+    let middleValue = sortedArray[middle];
+
+    if (middleValue < value) low = middle + 1;
+    else if (middleValue > value) high = middle - 1;
+    else return middle;
+  }
+
+  return -1;
+}
+
+function recursionBinarySearch(sortedArray, value, upper, lower) {
+  let middle = Math.floor((upper + lower) / 2);
+  let middleValue = sortedArray[middle];
+
+  if (middleValue === value) {
+    return middle;
+  } 
+  else if (middleValue > value) {
+    return recursionBinarySearch(sortedArray, value, middle - 1, lower);
+  }
+  else if (middleValue < value) {
+    return recursionBinarySearch(sortedArray, value, upper, middle + 1);
+  }
+  else {
+    return -1;
+  }
+}
+
