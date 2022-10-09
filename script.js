@@ -65,3 +65,18 @@ function insertion(array) {
 
   console.log(array);
 }
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// Linear Search
+function linearSearch(array, value) {
+  for (let i=0; i<array.length; i++) {
+    if (value === array[i]) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+console.log(linearSearch(array, 2))
