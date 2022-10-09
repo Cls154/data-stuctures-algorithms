@@ -46,3 +46,11 @@ function bubble(array) {
   }
   console.log(array);
 }
+
+
+function insertion(array) {
+
+  console.log(array);
+}
+
+insertion(unsortedArray);
