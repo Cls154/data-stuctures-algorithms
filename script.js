@@ -112,3 +112,50 @@ function recursionBinarySearch(sortedArray, value, upper, lower) {
   }
 }
 
+function mergeSort(array) {
+  if (array.length <= 1) return;
+
+  const leftArray = [];
+  const rightArray = [];
+  const middle = Math.floor(array.length / 2);
+
+  for (let i=0; i<array.length; i++) {
+    if (i < middle) {
+      leftArray.push(array[i]);
+    } else {
+      rightArray.push(array[i]);
+    }
+  }
+
+  mergeSort(leftArray);
+  mergeSort(rightArray);
+
+  merge(leftArray, rightArray, array);
+}
+function merge(leftArray, rightArray, array) {
+  let lIndex = 0;
+  let rIndex = 0;
+  let i = 0;
+
+  while (lIndex < leftArray.length && rIndex < rightArray.length) {
+    if (leftArray[lIndex] < rightArray[rIndex]) {
+      array[i] = leftArray[lIndex];
+      i++;
+      lIndex++;
+    } else {
+      array[i] = rightArray[rIndex];
+      i++;
+      rIndex++;
+    }
+  }
+
+  for (; lIndex < leftArray.length; lIndex++) {
+    array[i] = leftArray[lIndex];
+    i++;
+  }
+  for (; rIndex < rightArray.length; rIndex++) {
+    array[i] = rightArray[rIndex];
+    i++;
+  }
+}
+
